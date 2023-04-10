@@ -1,23 +1,23 @@
-const menuArray = [
+export const itemArray = [
     {
-        name: "Pizza",
-        ingredients: ["pepperoni", "mushrom", "mozarella"],
+        name: "Dodo",
+        features: ["feathers", "dumpy", "rare", "wings", "flightless"],
         id: 0,
         price: 14,
-        emoji: "🍕"
+        emoji: "🦤"
     },
     {
-        name: "Hamburger",
-        ingredients: ["beef", "cheese", "lettuce"],
+        name: "Dippy Dino",
+        features: ["big", "vegitarian", "blue", "tall", "snotty"],
         price: 12,
-        emoji: "🍔",
+        emoji: "🦕",
         id: 1
     },
         {
-        name: "Beer",
-        ingredients: ["grain, hops, yeast, water"],
+        name: "Unicorn",
+        features: ["sparkly", "farts rainbows", "flys", "horny"],
         price: 12,
-        emoji: "🍺",
+        emoji: "🦄",
         id: 2
     }
 ]

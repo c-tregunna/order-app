@@ -1,3 +1,125 @@
-body {
+* {
+    padding: 0;
     margin: 0;
-} 
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+    --white: #fff;
+    --black: #000;
+    --text-grey: #8b8b8b;
+    --border-grey: #d2d2d2;
+    --remove-grey: #bbb;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Smythe', cursive;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-family: 'Kaushan Script', cursive;
+    background: url("images/rareities-no-txt.png") no-repeat;
+    max-width: 600px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.item-name,
+.item-order-name {
+    font-size: 1.75rem;
+}
+
+.item-ingrediants  {
+    font-size: 1rem;
+    color: var(--text-grey)
+}
+
+.item-order-remove {
+    font-size: .75rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--remove-grey)
+}
+h3,
+.item-price,
+.item-order-price  {
+    font-size: 1.25rem;
+}
+
+.item-order-price {
+    margin-left: auto;
+}
+
+.plus {
+    font-style: normal;
+    font-weight: 100;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* section */
+.item,
+.item-order-info  {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid var(--border-grey);
+    gap: 40px;
+    padding: 40px 50px;
+}
+
+.item-icon {
+    font-size: 70px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.add-item-btn {
+    margin-left: auto;
+    border: 1px solid var(--border-grey);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .6s ease,
+                color .4s ease;
+}
+
+.add-item-btn:hover  {
+    background-color: var(--black);
+    color: var(--white)
+}
+
+/* order-section */
+
+.order-section {
+    text-align: center;
+}
