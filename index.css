@@ -64,10 +64,6 @@ h3,
     font-size: 1.25rem;
 }
 
-.item-order-price {
-    margin-left: auto;
-}
-
 .plus {
     font-style: normal;
     font-weight: 100;
@@ -77,7 +73,7 @@ h3,
 
 /* section */
 .item,
-.item-order-info  {
+.item-order-info {
     width: 90%;
     max-width: 600px;
     margin: auto;
@@ -87,6 +83,15 @@ h3,
     border-bottom: 1px solid var(--border-grey);
     gap: 40px;
     padding: 40px 50px;
+}
+
+.item-order-info {
+    border-bottom: none;
+    padding: 10px 50px;
+}
+
+.item-order-price {
+   margin-left: auto;
 }
 
 .item-icon {
@@ -106,6 +111,10 @@ h3,
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,4 +131,10 @@ h3,
 
 .order-section {
     text-align: center;
+    font-size: 2.5rem;
+    margin: 20px 0 50px;
+}
+
+.hidden {
+    display: none;
 }
