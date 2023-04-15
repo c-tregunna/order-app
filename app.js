@@ -38,7 +38,8 @@ document.addEventListener('click', (e) => {
         orderSection.classList.remove('hidden');
         addToOrderClick(e.target.dataset.add)
         document.getElementById('order').innerHTML = addOrderItem();
-        console.log(itemOrders.length)
+        // console.log(itemOrders)
+        totalCost()
     }
 })
 
@@ -64,5 +65,14 @@ function addOrderItem() {
     return orderHtml;
 }
 
+
+function totalCost() {
+    let orderTotal = 0;
+    itemOrders.forEach(item => {
+        orderTotal += item.price;
+    })
+    document.getElementById('order-total').innerHTML = `£ ${orderTotal}`
+}
+totalCost()
 
 

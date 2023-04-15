@@ -11,6 +11,7 @@
     --text-grey: #8b8b8b;
     --border-grey: #d2d2d2;
     --remove-grey: #bbb;
+    --button: #ef8fef;
 }
 
 body {
@@ -44,8 +45,15 @@ h1 {
 }
 
 .item-name,
-.item-order-name {
+.item-order-name,
+.item-price,
+.item-order-price  {
     font-size: 1.75rem;
+}
+
+.item-price,
+.item-order-price {
+    letter-spacing: 2px;
 }
 
 .item-ingrediants  {
@@ -58,10 +66,14 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--remove-grey)
 }
-h3,
-.item-price,
-.item-order-price  {
+
+h3
+ {
     font-size: 1.25rem;
+}
+
+.order-title {
+    font-size: 1.875rem;
 }
 
 .plus {
@@ -74,20 +86,19 @@ h3,
 /* section */
 .item,
 .item-order-info {
-    width: 90%;
     max-width: 600px;
     margin: auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     border-bottom: 1px solid var(--border-grey);
-    gap: 40px;
-    padding: 40px 50px;
+    gap: 20px;
+    padding: 40px 10px;
 }
 
 .item-order-info {
     border-bottom: none;
-    padding: 10px 50px;
+    padding: 10px;
 }
 
 .item-order-price {
@@ -95,7 +106,7 @@ h3,
 }
 
 .item-icon {
-    font-size: 70px;
+    font-size: 50px;
 }
 
 .item-info {
@@ -108,8 +119,8 @@ h3,
 .add-item-btn {
     margin-left: auto;
     border: 1px solid var(--border-grey);
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     font-style: normal;
     font-weight: 100;
@@ -123,12 +134,19 @@ h3,
 }
 
 .add-item-btn:hover  {
-    background-color: var(--black);
+    background-color: var(--button);
     color: var(--white)
 }
 
 /* order-section */
 
+.order-total-container {
+    margin: 10px auto;
+    padding: 10px 10px;
+    border-top: 2px solid var(--black);
+    display: flex;
+    justify-content: space-between;
+}
 .order-section {
     text-align: center;
     font-size: 2.5rem;
@@ -137,4 +155,39 @@ h3,
 
 .hidden {
     display: none;
+}
+
+.order-btn {
+    margin-top: 20px;
+    padding: 16px 40px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-grey);
+    background: var(--button);
+}
+
+@media (min-width: 768px) {
+    .item,
+    .item-order-info,
+    .order-total-container {
+        width: 90%;
+        gap: 40px;
+    }
+
+    .item
+    .order-total-container {
+        padding: 40px 50px;
+    }
+
+    .item-icon {
+        font-size: 70px;
+    }
+
+    .add-item-btn {
+        height: 50px;
+        width: 50px;
+    }
+    .order-btn {
+        padding: 16px 90px;
+    }
 }
