@@ -32,6 +32,23 @@ function addOrderClick(itemId) {
 
 
 
+function orderHtmlContainer() {
+    let orderSectionHtml = `
+    <h4 class="order-title">Your Order</h4>
+    <div class="item-order" id="order">
+        ${orderHtml}
+    </div>
+    <div class="order-total-container">
+        <h4 class="item-order-name">Order total</h4>
+        <h4 class="item-order-price" id="order-total"></h4>
+    </div>
+    <button id="complete-order-btn" class="order-btn" data-complete="complete"> Complete Order!</button>
+    `
+    return orderSectionHtml;
+}
+orderHtmlContainer()
+
+
 
 // function renderOrder() {
 //     document.getElementById('order').innerHTML = addOrderItem();

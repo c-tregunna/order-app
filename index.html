@@ -18,20 +18,21 @@
             <h3>Here you can buy ANYTHING!</h3>
         </header>
         <main id="item-container">
-            <!-- ADDED VIA JS -->
+
         </main>
 
-        <section  class="order-section hidden">
-            <h4 class="order-title">Your Order</h4>
-            <div class="item-order" id="order">
-                <!-- ADDED VIA JS -->
-            </div>
-            <div class="order-total-container">
-                <h4 class="item-order-name">Order total</h4>
-                <h4 class="item-order-price" id="order-total"></h4>
-            </div>
-            <button id="complete-order-btn" class="order-btn"> Complete Order!</button>
+        <section  class="order-section hidden" id="order-container">
+           <!-- ADDED VIA JS -->
         </section>
+    </div>
+    <div class="modal hidden" id="payment-modal">
+        <form id="pay-form">
+            <h2>Enter card details</h2>
+            <input type="text" name="fullName" id="input-field" placeholder="Enter your name" required>
+            <input type="number" name="cardNumber" id="input-field" placeholder="Enter card number" required>
+            <input type="number" name="cvvNumber" id="input-field" placeholder="Enter CVV" required>
+            <button type="submit" id="complete-pay-btn" class="order-btn" data-pay="pay">Pay</button>
+        </form>
     </div>
 
 <script src="app.js" type="module"></script>
