@@ -21,16 +21,16 @@
 
         </main>
 
-        <section  class="order-section hidden" id="order-container">
+        <section  class="order-section" id="order-container">
            <!-- ADDED VIA JS -->
         </section>
     </div>
     <div class="modal hidden" id="payment-modal">
         <form id="pay-form">
             <h2>Enter card details</h2>
-            <input type="text" name="fullName" id="input-field" placeholder="Enter your name" required>
-            <input type="number" name="cardNumber" id="input-field" placeholder="Enter card number" required>
-            <input type="number" name="cvvNumber" id="input-field" placeholder="Enter CVV" required>
+            <input type="text" name="fullName" id="fullName" placeholder="Enter your name" required>
+            <input type="number" name="cardNumber" id="cardNumber" placeholder="Enter card number" required>
+            <input type="number" name="cvvNumber" id="cvvNumber" placeholder="Enter CVV" required>
             <button type="submit" id="complete-pay-btn" class="order-btn" data-pay="pay">Pay</button>
         </form>
     </div>

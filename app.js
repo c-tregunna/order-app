@@ -2,8 +2,9 @@ import { itemArray } from "./data.js";
 
 // VARIABLES
 let itemOrders = [];
-const orderSection = document.querySelector('.order-section ');
-const inputs = document.getElementsByTagName('input');
+const orderContainer = document.getElementById('order-container');
+const paymentForm = document.getElementById('pay-form');
+let orderTotal = 0;
 
 // order-container
 //EVENT LISTENERS
@@ -11,7 +12,6 @@ const inputs = document.getElementsByTagName('input');
 document.addEventListener('click', (e) => {
     //eventlistener to add item to the order
     if(e.target.dataset.add) {
-        orderSection.classList.remove('hidden');
         addToOrderClick(e.target.dataset.add) //add each item clicked to the itemOrders array with that id matching the e.target
         document.getElementById('order').innerHTML = addOrderItem();
     }
@@ -19,16 +19,29 @@ document.addEventListener('click', (e) => {
     if(e.target.dataset.complete) {
         document.getElementById('payment-modal').classList.remove('hidden');
     }
-    // eventlistener to pay
-    if(e.target.dataset.pay) {
-        if(inputs.value.length >= 1) {
-            document.getElementById('payment-modal').classList.add('hidden');
-            // document.getElementById('order').innerHTML = thankYou();
-
-        } else {
-            alert("fill out the form")
+    //eventlistener to delate an item from order
+    if(e.target.dataset.delete) {
+        e.target.closest('div').remove();
+        removeOrderClick(e.target.dataset.delete)
+        console.log(itemOrders)
+        totalCost()
+        if (itemOrders.length == 0) {
+            orderContainer.innerHTML = `<h4 class="order-title">Your basket is empty</h4>`;
         }
     }
+
+})
+
+//eventlistener to pay through form
+paymentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(paymentForm);
+    const payerName = formData.get('fullName');
+    console.log(payerName)
+    document.getElementById('payment-modal').classList.add('hidden');
+    orderContainer.innerHTML = `<div class="thank-you">Thanks, ${payerName}! Your order is on its way!</div>`
+    itemOrders = [];
+    orderTotal =0;
 })
 
 // FUNCTIONS
@@ -60,22 +73,34 @@ function renderItems() {
 
 renderItems();
 
+//function to add items to the itemOrders array when click the + button
 function addToOrderClick(itemId) {
     const targetItemObj = itemArray.filter(function(item){
         return item.id == itemId
     })[0]
+    orderTotal += targetItemObj.price
     itemOrders.push(targetItemObj); //add each item clicked to the itemOrders array with that id matching the e.target
     addOrderItem()
+    console.log(itemOrders)
 }
 
-//takes the items added to the array to display as an order
+//function to remove items to the itemOrders array when click the remove button
+function removeOrderClick(itemId) {
+    const targetItemObj = itemArray.filter(function(item){
+        return item.id == itemId
+    })[0]
+    itemOrders.pop(targetItemObj); //is there a better way to do this>
+    orderTotal -= targetItemObj.price //add each item clicked to the itemOrders array with that id matching the e.target
+}
+
+//takes the items added to the array to display as an order - will add to the funtion below
 function addOrderItem() {
     let orderHtml = ``;
     itemOrders.forEach(item => {
         orderHtml += `
         <div class="item-order-info">
             <h4 class="item-order-name">${item.name}</h4>
-            <p class="item-order-remove">remove</p>
+            <p class="item-order-remove" data-delete="${item.id}">remove</p>
             <h5 class="item-order-price">£${item.price}</h5>
         </div>
     `
@@ -83,7 +108,7 @@ function addOrderItem() {
     orderHtmlContainer(orderHtml)
 }
 
-//Create the order section
+//Create the order section where the items that are ordered will sit
 function orderHtmlContainer(orderHtml) {
     let orderSectionHtml = ``
     orderSectionHtml = `<h4 class="order-title">Your Order</h4>
@@ -96,18 +121,11 @@ function orderHtmlContainer(orderHtml) {
     </div>
     <button id="complete-order-btn" class="order-btn" data-complete="complete"> Complete Order!</button>
     `
-    document.getElementById('order-container').innerHTML = orderSectionHtml;
+    orderContainer.innerHTML = orderSectionHtml;
     totalCost()
 }
 
 //calculates total of order
 function totalCost() {
-    let orderTotal = 0;
-    itemOrders.forEach(item => {
-        orderTotal += item.price; //adds the price of each item to orderTotal
-    })
     document.getElementById('order-total').innerHTML = `£ ${orderTotal}`
 }
-
-
-

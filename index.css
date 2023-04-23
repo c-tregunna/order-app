@@ -200,6 +200,15 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+.thank-you {
+    width: 90%;
+    margin: auto;
+    background-color: var(--button);
+    color: var(--black);
+    padding: 30px;
+    font-size: 2rem;
+}
+
 .hidden {
     display: none;
 }
